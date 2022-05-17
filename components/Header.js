@@ -20,7 +20,10 @@ export const Header = () => {
             objectfit="contain"
           />
         </div>
-        <div className="relative flex h-10 w-10 flex-shrink-0 cursor-pointer items-center items-center lg:hidden">
+        <div
+          className="relative flex h-10 w-10 flex-shrink-0 cursor-pointer 
+        items-center items-center lg:hidden"
+        >
           <Image
             src="https://links.papareact.com/jjm"
             layout="fill"
@@ -45,7 +48,10 @@ export const Header = () => {
           <MenuIcon className="h-6 cursor-pointer md:hidden" />
           <div className="navBtn relative">
             <PaperAirplaneIcon className="navBtn" />
-            <div className="absolute -top-1 -right-2 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-xs text-white">
+            <div
+              className="absolute -top-1 -right-2 flex h-5 w-5 animate-pulse 
+            items-center justify-center rounded-full bg-red-500 text-xs text-white"
+            >
               3
             </div>
           </div>
