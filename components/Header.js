@@ -11,8 +11,8 @@ import {
 
 export const Header = () => {
   return (
-    <main className="shadow-sn sticky top-0 z-50 border-b bg-white">
-      <section className="mx-5 flex max-w-6xl justify-between lg:mx-auto">
+    <main className="shadow-sn sticky top-0 z-50 mx-5 border-b bg-white">
+      <section className="align-center mx-5 flex max-w-6xl justify-between lg:mx-auto">
         <div className="relative hidden h-24 w-24 cursor-pointer lg:inline-grid">
           <Image
             src="https://links.papareact.com/ocw"
