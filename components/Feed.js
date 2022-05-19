@@ -1,6 +1,7 @@
 import React from 'react'
 import { Posts } from './Posts'
 import { Stories } from './Stories'
+import { Suggestions } from './Suggestions'
 
 export const Feed = () => {
   return (
@@ -9,7 +10,9 @@ export const Feed = () => {
         <Stories />
         <Posts />
       </section>
-      <section className="hidden md:col-span-1 xl:inline-grid"></section>
+      <section className="hidden md:col-span-1 xl:inline-grid">
+        <Suggestions />
+      </section>
     </main>
   )
 }
