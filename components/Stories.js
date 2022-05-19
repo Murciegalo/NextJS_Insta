@@ -15,8 +15,9 @@ export const Stories = () => {
 
   return (
     <section
-      className="rounded-sn mt-8 flex space-x-2 
-    overflow-x-scroll border border-gray-200 bg-white p-6"
+      className="border-gray-20 mt-8 flex space-x-2 
+    overflow-x-scroll rounded-sm border bg-white 
+    p-6 scrollbar-thin scrollbar-thumb-black"
     >
       {suggestions.map((el) => (
         <Story key={el.id} img={el.avatar} username={el.username} />
