@@ -9,7 +9,7 @@ export const Feed = () => {
         <Stories />
         <Posts />
       </section>
-      <section></section>
+      <section className="hidden md:col-span-1 xl:inline-grid"></section>
     </main>
   )
 }
