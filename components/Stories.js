@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import faker from '@faker-js/faker'
-import { Story } from './Story'
+import Story from './Story'
 
-export const Stories = () => {
+import React from 'react'
+
+function Stories() {
   const [suggestions, setSuggestions] = useState([])
 
   useEffect(() => {
@@ -25,3 +27,5 @@ export const Stories = () => {
     </section>
   )
 }
+
+export default Stories

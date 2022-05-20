@@ -1,5 +1,4 @@
-import React from 'react'
-import { Post } from './Post'
+import Post from './Post'
 
 const DATA = [
   {
@@ -18,7 +17,7 @@ const DATA = [
   },
 ]
 
-export const Posts = () => {
+function Posts() {
   return (
     <div>
       {DATA.map((el) => (
@@ -27,3 +26,5 @@ export const Posts = () => {
     </div>
   )
 }
+
+export default Posts

@@ -1,6 +1,4 @@
-import React from 'react'
-
-export const Story = ({ img, username }) => {
+function Story({ img, username }) {
   return (
     <div>
       <img
@@ -14,3 +12,5 @@ export const Story = ({ img, username }) => {
     </div>
   )
 }
+
+export default Story

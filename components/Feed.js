@@ -1,6 +1,6 @@
-import { Posts } from './Posts'
-import { Stories } from './Stories'
-import { Suggestions } from './Suggestions'
+import Posts from './Posts'
+import Stories from './Stories'
+import Suggestions from './Suggestions'
 
 function Feed() {
   return (
