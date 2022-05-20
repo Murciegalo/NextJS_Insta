@@ -9,7 +9,7 @@ import {
   HomeIcon,
 } from '@heroicons/react/outline'
 
-export const Header = () => {
+function Header() {
   return (
     <main className="shadow-sn sticky top-0 z-50 mx-5 border-b bg-white">
       <section className="align-center mx-5 flex max-w-6xl justify-between lg:mx-auto">
@@ -69,3 +69,5 @@ export const Header = () => {
     </main>
   )
 }
+
+export default Header

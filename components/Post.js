@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/outline'
 import { HeartIcon as HearIconFilled } from '@heroicons/react/solid'
 
-export const Post = ({ el: { id, username, userImg, img, caption } }) => {
+function Post({ el: { id, username, userImg, img, caption } }) {
   return (
     <div className="my-7 rounded-sm border bg-white">
       <div className="flex items-center p-5">
@@ -47,3 +47,5 @@ export const Post = ({ el: { id, username, userImg, img, caption } }) => {
     </div>
   )
 }
+
+export default Post

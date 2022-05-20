@@ -1,6 +1,4 @@
-import React from 'react'
-
-export const Miniprofile = () => {
+function Miniprofile() {
   return (
     <div className="mt-14 ml-10 flex items-center justify-between">
       <img
@@ -16,3 +14,5 @@ export const Miniprofile = () => {
     </div>
   )
 }
+
+export default Miniprofile
