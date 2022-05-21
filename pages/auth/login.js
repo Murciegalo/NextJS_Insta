@@ -1,7 +1,6 @@
 import { getProviders, signIn } from 'next-auth/react'
 
 function login({ providers }) {
-  console.log('PROVIDErs', providers)
   return (
     <>
       {providers !== null &&
