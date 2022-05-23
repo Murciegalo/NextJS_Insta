@@ -1,6 +1,6 @@
 import { getProviders, signIn } from 'next-auth/react'
 import Header from '../../components/Header'
-// providers !== null &&
+
 function login({ providers }) {
   return (
     <>

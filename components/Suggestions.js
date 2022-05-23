@@ -12,7 +12,7 @@ function Suggestions() {
   }, [])
 
   return (
-    <div className="mt-4 ml-10">
+    <div className="mt-4 ml-10 flex flex-col">
       <div className="mb-5 flex justify-between text-sm">
         <h3 className="text-sm font-bold text-gray-400">Suggestions for you</h3>
         <button className="font-semibold text-gray-600">See All</button>
