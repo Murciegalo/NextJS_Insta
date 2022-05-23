@@ -58,34 +58,31 @@ function Header() {
         <div className="flex items-center justify-end space-x-4">
           <HomeIcon onClick={() => router.push('/')} className="navBtn" />
           <MenuIcon className="h-6 cursor-pointer md:hidden" />
-          {session ? (
-            <>
-              <div className="navBtn relative">
-                <PaperAirplaneIcon className="navBtn" />
-                <div
-                  className="absolute -top-1 -right-2 flex h-5 w-5 animate-pulse 
+          {/* {session ? ( */}
+          <>
+            <div className="navBtn relative">
+              <PaperAirplaneIcon className="navBtn" />
+              <div
+                className="absolute -top-1 -right-2 flex h-5 w-5 animate-pulse 
             items-center justify-center rounded-full bg-red-500 text-xs text-white"
-                >
-                  3
-                </div>
+              >
+                3
               </div>
-              <PlusCircleIcon
-                onClick={() => setOpen(true)}
-                className="navBtn"
-              />
-              <UserGroupIcon className="navBtn" />
-              <HeartIcon className="navBtn" />
+            </div>
+            <PlusCircleIcon onClick={() => setOpen(true)} className="navBtn" />
+            <UserGroupIcon className="navBtn" />
+            <HeartIcon className="navBtn" />
 
-              <img
-                onClick={signOut}
-                alt="profile pic"
-                className="h-10 w-10 cursor-pointer rounded-full"
-                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ShQwgH2v9ZMHDbPod81-QgHaEK%26pid%3DApi&f=1"
-              />
-            </>
-          ) : (
-            <button onClick={signIn}>Sign In</button>
-          )}
+            <img
+              onClick={signOut}
+              alt="profile pic"
+              className="h-10 w-10 cursor-pointer rounded-full"
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ShQwgH2v9ZMHDbPod81-QgHaEK%26pid%3DApi&f=1"
+            />
+          </>
+          {/* ) : ( */}
+          {/* <button onClick={signIn}>Sign In</button>
+          )} */}
         </div>
       </section>
     </main>

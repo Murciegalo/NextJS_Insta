@@ -42,11 +42,11 @@ function Modal() {
                 <div className="mt-5 sm:mt-6">
                   <button
                     type="button"
-                    disabled={!selectedFile}
+                    // disabled={!selectedFile}
                     className="inline-flex w-full justify-center"
-                    onClick={uploadPost}
+                    // onClick={uploadPost}
                   >
-                    {loading ? 'Uploading... ' : 'Upload Post'}
+                    Upload
                   </button>
                 </div>
               </div>
