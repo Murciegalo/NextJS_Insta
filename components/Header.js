@@ -8,10 +8,13 @@ import {
   MenuIcon,
   HomeIcon,
 } from '@heroicons/react/outline'
+import { useSession, signIn, signOut } from 'next-auth/react'
 
 function Header() {
+  const { data: session, status, loading } = useSession()
+  console.log(session)
   return (
-    <main className="shadow-sn sticky top-0 z-50 mx-5 border-b bg-white">
+    <main className="shadow-sn sticky top-0 z-50 border-b bg-white">
       <section className="align-center mx-5 flex max-w-6xl justify-between lg:mx-auto">
         <div className="relative hidden h-24 w-24 cursor-pointer lg:inline-grid">
           <Image
@@ -25,7 +28,7 @@ function Header() {
         items-center items-center lg:hidden"
         >
           <Image
-            src="https://links.papareact.com/jjm"
+            src={session?.user?.image || 'https://links.papareact.com/jjm'}
             layout="fill"
             objectfit="contain"
           />
@@ -46,24 +49,31 @@ function Header() {
         <div className="flex items-center justify-end space-x-4">
           <HomeIcon className="navBtn" />
           <MenuIcon className="h-6 cursor-pointer md:hidden" />
-          <div className="navBtn relative">
-            <PaperAirplaneIcon className="navBtn" />
-            <div
-              className="absolute -top-1 -right-2 flex h-5 w-5 animate-pulse 
+          {session ? (
+            <>
+              <div className="navBtn relative">
+                <PaperAirplaneIcon className="navBtn" />
+                <div
+                  className="absolute -top-1 -right-2 flex h-5 w-5 animate-pulse 
             items-center justify-center rounded-full bg-red-500 text-xs text-white"
-            >
-              3
-            </div>
-          </div>
-          <PlusCircleIcon className="navBtn" />
-          <UserGroupIcon className="navBtn" />
-          <HeartIcon className="navBtn" />
+                >
+                  3
+                </div>
+              </div>
+              <PlusCircleIcon className="navBtn" />
+              <UserGroupIcon className="navBtn" />
+              <HeartIcon className="navBtn" />
 
-          <img
-            alt="profile pic"
-            className="h-10 w-10 cursor-pointer rounded-full"
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ShQwgH2v9ZMHDbPod81-QgHaEK%26pid%3DApi&f=1"
-          />
+              <img
+                onClick={signOut}
+                alt="profile pic"
+                className="h-10 w-10 cursor-pointer rounded-full"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.ShQwgH2v9ZMHDbPod81-QgHaEK%26pid%3DApi&f=1"
+              />
+            </>
+          ) : (
+            <button onClick={signIn}>Sign In</button>
+          )}
         </div>
       </section>
     </main>
