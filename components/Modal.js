@@ -14,6 +14,13 @@ function Modal() {
   const uploadPost = async () => {
     if (loading) return
     setLoading(true)
+    // Create Post & Save to Posts Collection in FB
+
+    // Get newly created PostID
+
+    // Upload Image to firebase storage with PostID
+
+    // Get downloadURL from FB and update post with Img
   }
   const addImgToPost = (e) => {
     const reader = new FileReader()
