@@ -8,12 +8,13 @@ import {
 } from '@heroicons/react/outline'
 import { HeartIcon as HearIconFilled } from '@heroicons/react/solid'
 
-function Post({ el: { id, username, userImg, img, caption } }) {
+function Post({ el: { username, profileImg, image, caption } }) {
+  console.log('EL on POST', el)
   return (
     <div className="my-7 rounded-sm border bg-white">
       <div className="flex items-center p-5">
         <img
-          src={userImg}
+          src={profileImg}
           className="mr-3 h-12 w-12 rounded-full border object-contain p-1"
           alt=""
         />
@@ -21,7 +22,7 @@ function Post({ el: { id, username, userImg, img, caption } }) {
         <DotsHorizontalIcon className="h-5" />
       </div>
 
-      <img src={img} className="w-full object-cover" alt="cover pic" />
+      <img src={image} className="w-full object-cover" alt="cover pic" />
 
       <div className="flex justify-between px-4 pt-4">
         <div className="flex space-x-4">

@@ -28,7 +28,7 @@ function Modal() {
     // Create Post & Save to Posts Collection in FB
     const docRef = await addDoc(collection(db, 'posts'), {
       username: session.user.username,
-      captionRef: captionRef.current.value,
+      caption: captionRef.current.value,
       profileImg: session.user.image,
       timeStamp: serverTimestamp(),
     })
