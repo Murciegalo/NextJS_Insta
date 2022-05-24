@@ -3,8 +3,19 @@ import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modal'
 import { Dialog, Transition } from '@headlessui/react'
 import { CameraIcon } from '@heroicons/react/outline'
+import { db, storage } from '../firebase'
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from 'firebase/firestore'
+import { useSession } from 'next-auth/react'
+import { ref, getDownloadURL, uploadString } from 'firebase/storage'
 
 function Modal() {
+  const { data: session } = useSession()
   const [open, setOpen] = useRecoilState(modalState)
   const filePickerRef = useRef(null)
   const captionRef = useRef(null)
@@ -15,12 +26,28 @@ function Modal() {
     if (loading) return
     setLoading(true)
     // Create Post & Save to Posts Collection in FB
-
-    // Get newly created PostID
+    const docRef = await addDoc(collection(db, 'posts'), {
+      username: session.user.username,
+      captionRef: captionRef.current.value,
+      profileImg: session.user.image,
+      timeStamp: serverTimestamp(),
+    })
+    console.log('new doc added', docRef.id)
 
     // Upload Image to firebase storage with PostID
-
-    // Get downloadURL from FB and update post with Img
+    const imageRef = ref(storage, `posts/${docRef.id}/image`)
+    await uploadString(imageRef, selectedFile, 'data_url').then(
+      async (snapshot) => {
+        const downloadURL = await getDownloadURL(imageRef)
+        // Get downloadURL and update post with Img
+        await updateDoc(doc(db, 'posts', docRef.id), {
+          image: downloadURL,
+        })
+      }
+    )
+    setOpen(false)
+    setLoading(false)
+    setSelectedFile(null)
   }
   const addImgToPost = (e) => {
     const reader = new FileReader()
@@ -115,9 +142,9 @@ function Modal() {
                     type="button"
                     disabled={!selectedFile}
                     className="hover:disabled-bg-gray-300 inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-300 sm:text-sm"
-                    // onClick={uploadPost}
+                    onClick={uploadPost}
                   >
-                    Upload Post
+                    {loading ? 'Uploading Post' : 'Upload Post'}
                   </button>
                 </div>
               </div>
